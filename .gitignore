@@ -1,14 +1,53 @@
-# Byte-compiled / optimized / DLL files
+# --- OS / Editor -------------------------------------------------------------
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+._*
+.vscode/
+.idea/
+.obsidian/
+*.swp
+*.swo
+*~
+*.code-workspace
+
+# --- Python bytecode / caches ------------------------------------------------
+
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
+.python-version
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyre/
+.pytype/
+.hypothesis/
+.tox/
+.nox/
+.cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+nosetests.xml
+test-results.xml
+test-reports/
+report.html
+*.cover
+*.py,cover
+cover/
+cython_debug/
 
-# Distribution / packaging
+# --- Python packaging / build ------------------------------------------------
+
 .Python
 build/
-develop-eggs/
 dist/
+develop-eggs/
 downloads/
 eggs/
 .eggs/
@@ -20,194 +59,73 @@ var/
 wheels/
 share/python-wheels/
 *.egg-info/
-.installed.cfg
 *.egg
-.ttadk
+.installed.cfg
 MANIFEST
 openviking.egg-info/
-data/
 
-# Rust
-target/
-**/*.rs.bk
-*.pdb
+# --- Virtual env / env files -------------------------------------------------
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-.ruff_cache/
-cover/
-test_data/
-test_data_sync/
-reports/
-test-results.xml
-test-reports/
-report.html
-
-# Virtual environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# IDE
-.vscode/
-.idea/
-.obsidian/
-*.swp
-*.swo
-*~
-
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Windows
-Thumbs.db
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-# Config files - contains sensitive information
-config/settings.py
-
-# Docker
-docker-compose.override.yml
-
-# OpenViking specific
-/data/*
-/demo_data/*
-/benchmark_data/*
-.claude
-.openviking
-*.code-workspace
-.openviking.pid
-exports/
-
-# API Test temporary files
-tests/api_test/api-test-report.html
-tests/api_test/openviking-server.log
-tests/api_test/openviking-server.pid
-tests/oc2ov_test/config/settings.py
-
-# Benchmark outputs
-examples/benchmark/outputs/
-examples/benchmark/datasets/full/
-examples/benchmark/*.log
-RAGbenchmark/datasets/*/
-!RAGbenchmark/datasets/Benchmark_Lite/
-RAGbenchmark/Output/
-RAGbenchmark/*.log
-
-# AI Coding
-CLAUDE.md
-*.so
-AGENTS.md
-
-# Git worktrees
-.worktrees/
-
-# Logs
-*.log
-logs/
-
-# Temporary files
-*.tmp
-*.temp
-.tmp/
-ov.conf
-# 仅忽略仓库根目录的 result/；benchmark 下各 result 由下方 bench workspace 规则管理
-/result/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# mkdocs documentation
-/site
-docs/superpowers/
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# pytype static type analyzer
-.pytype/
-
-# Cython debug symbols
-cython_debug/
-openviking/bin/
-third_party/agfs/bin/
-test_scripts/
-examples/data/
-openviking/_version.py
-specs/
-.trae/
-.codex/
-.ttadk/
-
-
-# ===== local bench workspace =====
-
-# local secrets / configs
 .env
 .env.*
 !.env.example
 !.env.*.example
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Node / frontend ---------------------------------------------------------
+
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+*.tsbuildinfo
+
+# --- Rust / C / C++ / native build ------------------------------------------
+
+target/
+**/*.rs.bk
+*.pdb
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+
+# --- PyInstaller -------------------------------------------------------------
+
+*.manifest
+*.spec
+
+# --- Logs / temp / runtime ---------------------------------------------------
+
+*.log
+logs/
+nohup.out
+*.pid
+*.pid.lock
+*.tmp
+*.temp
+.tmp/
+tmp/
+temp/
+.openviking.pid
+celerybeat-schedule
+
+# --- Local secrets / machine-specific configs --------------------------------
+
+/.openviking/
+/.openclaw/
 ov.conf
 ovcli.conf
 openclaw.json
@@ -218,50 +136,63 @@ openclaw*.json
 *.crt
 *.p12
 *.pfx
+config/settings.py
+tests/oc2ov_test/config/settings.py
+docker-compose.override.yml
 
-# logs / runtime
-*.log
-nohup.out
-*.pid
-*.pid.lock
-tmp/
-temp/
+# --- Root-level generated data / exports -------------------------------------
 
-# python local cache
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.hypothesis/
-.coverage
-.coverage.*
-htmlcov/
+/data/
+/demo_data/
+/benchmark_data/
+/exports/
+/result/
 
-# node / js local deps
-node_modules/
-.npm/
-.pnpm-store/
-.yarn/
-*.tsbuildinfo
+# --- OpenViking local generated paths ----------------------------------------
 
-# rust / c / build outputs
-target/
-build/
-dist/
-cmake-build-*/
-CMakeFiles/
-CMakeCache.txt
-compile_commands.json
-*.o
-*.obj
-*.so
-*.dylib
-*.dll
-*.a
-*.lib
+openviking/bin/
+third_party/agfs/bin/
+openviking/_version.py
+examples/data/
+test_scripts/
+specs/
 
-# benchmark generated outputs
+# --- Test artifacts ----------------------------------------------------------
+
+test_data/
+test_data_sync/
+reports/
+tests/api_test/api-test-report.html
+tests/api_test/openviking-server.log
+tests/api_test/openviking-server.pid
+
+# --- Docs / site outputs -----------------------------------------------------
+
+/site
+docs/superpowers/
+
+# --- AI / local tooling ------------------------------------------------------
+
+.claude/
+.trae/
+.codex/
+.ttadk/
+.worktrees/
+CLAUDE.md
+AGENTS.md
+
+# --- Optional benchmark artifacts --------------------------------------------
+
+examples/benchmark/outputs/
+examples/benchmark/datasets/full/
+examples/benchmark/*.log
+RAGbenchmark/datasets/*/
+!RAGbenchmark/datasets/Benchmark_Lite/
+RAGbenchmark/Output/
+RAGbenchmark/*.log
+
+# --- Benchmark generated results ---------------------------------------------
+
 benchmark/locomo/openclaw/result/*
 !benchmark/locomo/openclaw/result/.gitkeep
 
