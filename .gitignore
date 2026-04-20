@@ -152,7 +152,8 @@ logs/
 *.temp
 .tmp/
 ov.conf
-result/
+# 仅忽略仓库根目录的 result/；benchmark 下各 result 由下方 bench workspace 规则管理
+/result/
 
 # Jupyter Notebook
 .ipynb_checkpoints
@@ -198,3 +199,74 @@ specs/
 .trae/
 .codex/
 .ttadk/
+
+
+# ===== local bench workspace =====
+
+# local secrets / configs
+.env
+.env.*
+!.env.example
+!.env.*.example
+ov.conf
+ovcli.conf
+openclaw.json
+openclaw*.json
+*.secrets.json
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# logs / runtime
+*.log
+nohup.out
+*.pid
+*.pid.lock
+tmp/
+temp/
+
+# python local cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+
+# node / js local deps
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/
+*.tsbuildinfo
+
+# rust / c / build outputs
+target/
+build/
+dist/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+
+# benchmark generated outputs
+benchmark/locomo/openclaw/result/*
+!benchmark/locomo/openclaw/result/.gitkeep
+
+benchmark/locomo/vikingbot/result/*
+!benchmark/locomo/vikingbot/result/.gitkeep
+
+benchmark/vaka/vikingbot/result/*
+!benchmark/vaka/vikingbot/result/.gitkeep
